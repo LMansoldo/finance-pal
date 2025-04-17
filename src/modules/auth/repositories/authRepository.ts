@@ -1,4 +1,4 @@
-import { User } from '../../../shared/types/User';
+import { User } from '../types/User.type';
 
 export const authRepository = {
   login(email: string, password: string): User | null {

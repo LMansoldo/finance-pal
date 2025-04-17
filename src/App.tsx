@@ -4,6 +4,7 @@ import { AuthProvider } from './modules/auth/context/AuthContext';
 import { PrivateRoute } from './shared/components/PrivateRoute';
 
 const LoginPage = lazy(() => import('./pages/login/LoginPage'));
+const RegisterPage = lazy(() => import('./pages/register/RegisterPage'));
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -18,7 +19,7 @@ const App: React.FC = () => {
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<></>} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route 
               path="/" 
               element={

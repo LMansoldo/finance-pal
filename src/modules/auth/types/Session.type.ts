@@ -1,4 +1,4 @@
-import { User } from './User';
+import { User } from '@modules/auth/types/User.type';
 
 export interface Session {
   user: User;
