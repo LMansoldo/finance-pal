@@ -9,17 +9,9 @@
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"paths": {
-			"@components/*": ["./src/financial-dashboard/views/components/*"],
-			"@types/*": ["./src/financial-dashboard/types/*"],
-			"@utils/*": ["./src/financial-dashboard/utils/*"],
-			"@models/*": ["./src/financial-dashboard/models/*"],
-			"@enums/*": ["./src/financial-dashboard/models/enums/*"],
-			"@constants/*": ["./src/financial-dashboard/models/constants/*"],
-			"@interfaces/*": ["./src/financial-dashboard/models/interfaces/*"],
-			"@viewmodels/*": ["./src/financial-dashboard/viewmodels/*"],
-			"@services/*": ["./src/financial-dashboard/services/*"],
-			"@views/*": ["./src/financial-dashboard/views/*"],
-			"@helpers/*": ["./src/financial-dashboard/models/helpers/*"]
+			"@modules/*": ["./src/modules/*"],
+			"@pages/*": ["./src/pages/*"],
+			"@shared/*": ["./src/shared/*"],
 		},
 
 		/* Bundler mode */

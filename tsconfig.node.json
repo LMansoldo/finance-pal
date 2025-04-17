@@ -7,17 +7,9 @@
 		"jsx": "react-jsx",
 		"skipLibCheck": true,
 		"paths": {
-			"@components/*": ["./src/financial-dashboard/views/components/*"],
-			"@types/*": ["./src/financial-dashboard/types/*"],
-			"@utils/*": ["./src/financial-dashboard/utils/*"],
-			"@models/*": ["./src/financial-dashboard/models/*"],
-			"@constants/*": ["./src/financial-dashboard/models/constants/*"],
-			"@enums/*": ["./src/financial-dashboard/models/enums/*"],
-			"@interfaces/*": ["./src/financial-dashboard/models/interfaces/*"],
-			"@viewmodels/*": ["./src/financial-dashboard/viewmodels/*"],
-			"@services/*": ["./src/financial-dashboard/services/*"],
-			"@views/*": ["./src/financial-dashboard/views/*"],
-			"@helpers/*": ["./src/financial-dashboard/models/helpers/*"]
+			"@modules/*": ["./src/modules/*"],
+			"@pages/*": ["./src/pages/*"],
+			"@shared/*": ["./src/shared/*"],
 		},
 
 		/* Bundler mode */

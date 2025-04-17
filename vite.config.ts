@@ -16,19 +16,9 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: {
-			'@models': path.resolve(__dirname, './src/financial-dashboard/models'),
-			'@services': path.resolve(__dirname, './src/financial-dashboard/services'),
-			'@viewmodels': path.resolve(__dirname, './src/financial-dashboard/viewmodels'),
-			'@views': path.resolve(__dirname, './src/financial-dashboard/views'),
-			'@components': path.resolve(__dirname, './src/financial-dashboard/views/components'),
-			'@pages': path.resolve(__dirname, './src/financial-dashboard/views/pages'),
-			'@hooks': path.resolve(__dirname, './src/financial-dashboard/viewmodels/hooks'),
-			'@utils': path.resolve(__dirname, './src/financial-dashboard/utils'),
-			'@assets': path.resolve(__dirname, './src/financial-dashboard/assets'),
-			'@config': path.resolve(__dirname, './src/financial-dashboard/config'),
-			'@enums': path.resolve(__dirname, './src/financial-dashboard/models/enums'),
-			'@constants': path.resolve(__dirname, './src/financial-dashboard/models/constants'),
-			'@interfaces': path.resolve(__dirname, './src/financial-dashboard/models/interfaces'),
+			'@modules': path.resolve(__dirname, './src/modules'),
+			'@pages': path.resolve(__dirname, './src/pages'),
+			'@shared': path.resolve(__dirname, './src/shared')
 		},
 	},
 })
