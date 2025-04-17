@@ -1,0 +1,38 @@
+{
+	"compilerOptions": {
+		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+		"target": "ES2022",
+		"lib": ["ES2023"],
+		"module": "ESNext",
+		"jsx": "react-jsx",
+		"skipLibCheck": true,
+		"paths": {
+			"@components/*": ["./src/financial-dashboard/views/components/*"],
+			"@types/*": ["./src/financial-dashboard/types/*"],
+			"@utils/*": ["./src/financial-dashboard/utils/*"],
+			"@models/*": ["./src/financial-dashboard/models/*"],
+			"@constants/*": ["./src/financial-dashboard/models/constants/*"],
+			"@enums/*": ["./src/financial-dashboard/models/enums/*"],
+			"@interfaces/*": ["./src/financial-dashboard/models/interfaces/*"],
+			"@viewmodels/*": ["./src/financial-dashboard/viewmodels/*"],
+			"@services/*": ["./src/financial-dashboard/services/*"],
+			"@views/*": ["./src/financial-dashboard/views/*"],
+			"@helpers/*": ["./src/financial-dashboard/models/helpers/*"]
+		},
+
+		/* Bundler mode */
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"isolatedModules": true,
+		"moduleDetection": "force",
+		"noEmit": true,
+
+		/* Linting */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedSideEffectImports": true
+	},
+	"include": ["vite.config.ts"]
+}
