@@ -13,11 +13,13 @@ export class Messages {
     static readonly PASSWORD_REQUIRED = 'A senha é obrigatória.';
     static readonly EMAIL_REQUIRED = 'O email é obrigatório.';
     static readonly NAME_REQUIRED = 'O nome é obrigatório.';
+    static readonly NAME_TOO_SHORT = 'O nome deve ter pelo menos 3 caracteres.';
     static readonly USER_EXISTS = 'Este email já está cadastrado.';
     static readonly GENERAL_ERROR = 'Ocorreu um erro inesperado.';
     static readonly INVALID_FORM = 'Por favor, preencha todos os campos corretamente.';
     static readonly INVALID_PASSWORD = 'Senha inválida.';
     static readonly INVALID_NAME = 'Nome inválido.';
+    static readonly CONFIRM_PASSWORD_REQUIRED = 'A confirmação de senha é obrigatória.';    
     static readonly INVALID_CONFIRM_PASSWORD = 'Confirmação de senha inválida.';
     static readonly INVALID_EMAIL_FORMAT = 'Formato de email inválido.';
     static readonly INVALID_NAME_LENGTH = 'O nome deve ter pelo menos 3 caracteres.';       
