@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@modules/auth/context/AuthContext';
+import { Messages } from '@shared/constants/messages';
 import { validateRegisterForm, RegisterFormData } from '@modules/auth/config/register.config';
 
 export const useRegisterForm = () => {
@@ -53,7 +54,7 @@ export const useRegisterForm = () => {
       const users = JSON.parse(localStorage.getItem('users') || '[]');
       const userExists = users.some((user: { email: string }) => user.email === formData.email);      
       if (userExists) {
-        setGeneralError('Este email já está cadastrado');
+        setGeneralError(Messages.USER_EXISTS);
         setIsSubmitting(false);
         return;
       }
@@ -68,10 +69,10 @@ export const useRegisterForm = () => {
       if (success) {
         navigate('/login');
       } else {
-        setGeneralError('Erro ao cadastrar usuário. Tente novamente.');
+        setGeneralError(Messages.REGISTER_ERROR);
       }
     } catch (error) {
-      setGeneralError('Ocorreu um erro ao processar o registro');
+      setGeneralError(Messages.GENERAL_ERROR);
       console.error('Register error:', error);
     } finally {
       setIsSubmitting(false);

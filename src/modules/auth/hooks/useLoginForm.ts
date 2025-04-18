@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@modules/auth/context/AuthContext';
+import { Messages } from '@shared/constants/messages';
 import { validateLoginForm, LoginFormData } from '@modules/auth/config/login.config';
 
 export const useLoginForm = () => {
@@ -51,10 +52,10 @@ export const useLoginForm = () => {
       if (success) {
         navigate('/');
       } else {
-        setGeneralError('Email ou senha incorretos');
+        setGeneralError(Messages.INVALID_CREDENTIALS);
       }
     } catch (error) {
-      setGeneralError('Ocorreu um erro ao processar o login');
+      setGeneralError(Messages.LOGIN_ERROR);
       console.error('Login error:', error);
     } finally {
       setIsSubmitting(false);

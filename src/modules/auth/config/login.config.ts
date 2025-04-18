@@ -1,14 +1,15 @@
 import { z } from 'zod';
+import { Messages } from '@shared/constants/messages';
 
 export const loginSchema = z.object({
   email: z
     .string()
-    .min(1, { message: 'Email é obrigatório' })
-    .email({ message: 'Email inválido' }),
+    .min(1, { message: Messages.EMAIL_REQUIRED })
+    .email({ message: Messages.INVALID_EMAIL_FORMAT }),
   password: z
     .string()
-    .min(1, { message: 'Senha é obrigatória' })
-    .min(6, { message: 'A senha deve ter pelo menos 6 caracteres' }),
+    .min(1, { message: Messages.PASSWORD_REQUIRED })
+    .min(6, { message: Messages.PASSWORD_TOO_SHORT }),
 });
 
 export type LoginFormData = z.infer<typeof loginSchema>;
@@ -30,7 +31,7 @@ export const validateLoginForm = (data: Partial<LoginFormData>) => {
     
     return { 
       success: false, 
-      errors: { form: 'Ocorreu um erro inesperado na validação' } 
+      errors: { form: Messages.GENERAL_ERROR } 
     };
   }
 };

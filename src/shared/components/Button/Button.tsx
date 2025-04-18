@@ -1,15 +1,6 @@
 import React from 'react';
-
-interface ButtonProps {
-  type?: 'button' | 'submit' | 'reset';
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  children: React.ReactNode;
-  className?: string;
-  disabled?: boolean;
-  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'warning';
-  fullWidth?: boolean;
-  size?: 'medium' | 'small' | 'large';
-}
+import { ButtonProps } from '@shared/types';
+import { ButtonSize, ButtonVariant } from '@shared/enums/button';
 
 export const Button: React.FC<ButtonProps> = ({
   type = 'button',
@@ -23,18 +14,18 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const baseClasses = 'font-bold rounded focus:outline-none focus:shadow-outline';
   
-  const variantClasses = {
-    primary: 'bg-blue-500 hover:bg-blue-700 text-white',
-    secondary: 'bg-gray-500 hover:bg-gray-700 text-white',
-    danger: 'bg-red-500 hover:bg-red-700 text-white',
-    success: 'bg-green-500 hover:bg-green-700 text-white',
-    warning: 'bg-yellow-500 hover:bg-yellow-700 text-white',
+  const variantClasses: Record<ButtonVariant, string> = {
+    [ButtonVariant.PRIMARY]: 'bg-blue-500 hover:bg-blue-700 text-white',
+    [ButtonVariant.SECONDARY]: 'bg-gray-500 hover:bg-gray-700 text-white',
+    [ButtonVariant.DANGER]: 'bg-red-500 hover:bg-red-700 text-white',
+    [ButtonVariant.SUCCESS]: 'bg-green-500 hover:bg-green-700 text-white',
+    [ButtonVariant.WARNING]: 'bg-yellow-500 hover:bg-yellow-700 text-white',
   };
   
-  const sizeClasses = {
-    small: 'py-1 px-2 text-sm',
-    medium: 'py-2 px-4',
-    large: 'py-3 px-6 text-lg',
+  const sizeClasses: Record<ButtonSize, string> = {
+    [ButtonSize.SMALL]: 'py-1 px-2 text-sm',
+    [ButtonSize.MEDIUM]: 'py-2 px-4',
+    [ButtonSize.LARGE]: 'py-3 px-6 text-lg',
   };
   
   const widthClass = fullWidth ? 'w-full' : '';
