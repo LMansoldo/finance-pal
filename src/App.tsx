@@ -5,6 +5,7 @@ import { PrivateRoute } from './shared/components/PrivateRoute';
 
 const LoginPage = lazy(() => import('./pages/login/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/register/RegisterPage'));
+const HomePage = lazy(() => import('./pages/home/HomePage'));
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -24,7 +25,7 @@ const App: React.FC = () => {
               path="/" 
               element={
                 <PrivateRoute>
-                  <></>
+                  <HomePage />
                 </PrivateRoute>
               } 
             />

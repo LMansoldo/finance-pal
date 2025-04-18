@@ -1,2 +1,2 @@
 export * from './TextField.type';
-export * from './FinancialData.type'
+export * from './Button.type';
