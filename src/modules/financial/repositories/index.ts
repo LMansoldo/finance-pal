@@ -1,0 +1,1 @@
+export { financialRepository } from './financialRepository';

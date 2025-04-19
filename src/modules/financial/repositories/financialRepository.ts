@@ -1,68 +1,47 @@
-import financeApi from '@shared/services/api';
-import { AssetItem, CurrencyItem, FinancialData, FinancialResponse } from '@modules/financial/types/FinancialData.type';
-
-const financialRoutes = {
-  getQuotations: () => '/finance',
-};
+import { FinancialData } from '@modules/financial/types/FinancialData.type';
+import { cacheService } from './cache';
+import { financialApiService } from './api';
+import { historyService } from './history';
+import { financialDataMapper } from './mappers';
 
 export const financialRepository = {
   async getQuotations(): Promise<FinancialData[]> {
+    const cacheKey = 'quotations';
+    
     try {
-      const response = await financeApi.get<FinancialResponse>(financialRoutes.getQuotations());
-      const results = response.results;
-      const { source = 'USD' } = results.currencies || {};
-      const currencies = Object.entries(results.currencies || {})
-        .filter(([key]) => key !== 'source')
-        .map(([key, value]: [string, CurrencyItem]) => ({
-          id: key,
-          source: source.toString(),
-          name: value.name,
-          buy: value.buy,
-          sell: value.sell,
-          variation: value.variation,
-          type: 'currency' as const
-        })).slice(0, 3);        
+      const cachedData = cacheService.get<FinancialData[]>(cacheKey);
+      if (cachedData) {
+        return cachedData;
+      }
       
-      const stocks = Object.entries(results.stocks || {})
-        .map(([key, value]: [string, AssetItem]) => ({
-          id: key,
-          name: value.name,
-          location: value.location,
-          points: value.points,
-          variation: value.variation,
-          type: 'stock' as const
-        })).slice(0, 3);
-
-      const bitcoin = Object.entries(results.bitcoin || {})
-        .map(([key, value]: [string, CurrencyItem]) => ({
-          id: key,
-          name: value.name,
-          source: source.toString(),
-          buy: value.buy,
-          sell: value.sell,
-          variation: value.variation,
-          type: 'bitcoin' as const
-        })).slice(0, 4);
-              
-      return [...currencies, ...stocks, ...bitcoin];
+      const response = await financialApiService.fetchQuotations();
+      const processedData = financialDataMapper.mapResponseToFinancialData(response);
+      
+      cacheService.set(cacheKey, processedData);
+      
+      return processedData;
     } catch (error) {
       console.error('Erro ao buscar cotações:', error);
+      
+      const expiredCache = cacheService.getExpired<FinancialData[]>(cacheKey);
+      if (expiredCache) {
+        console.log('Usando dados em cache expirados devido a erro na API');
+        return expiredCache;
+      }
+      
       return [];
     }
-  },  
-  saveQuotationHistory(quotation: FinancialData): void {
-    const now = new Date();
-    const history = JSON.parse(localStorage.getItem(`history_${quotation.id}`) || '[]');
-    
-    history.push({
-      ...quotation,
-      timestamp: now.getTime()
-    });
-    
-    localStorage.setItem(`history_${quotation.id}`, JSON.stringify(history));
   },
   
-  getQuotationHistory(quotationId: string): FinancialResponse[] {
-    return JSON.parse(localStorage.getItem(`history_${quotationId}`) || '[]');
+  clearCache(key?: string): void {
+    cacheService.clear(key);
+  },
+  
+  saveQuotationHistory(quotation: FinancialData): void {
+    historyService.saveQuotationHistory(quotation);
+  },
+  
+  getQuotationHistory(quotationId: string) {
+    return historyService.getQuotationHistory(quotationId);
   }
 };
