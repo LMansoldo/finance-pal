@@ -22,5 +22,9 @@ export class Messages {
     static readonly CONFIRM_PASSWORD_REQUIRED = 'A confirmação de senha é obrigatória.';    
     static readonly INVALID_CONFIRM_PASSWORD = 'Confirmação de senha inválida.';
     static readonly INVALID_EMAIL_FORMAT = 'Formato de email inválido.';
-    static readonly INVALID_NAME_LENGTH = 'O nome deve ter pelo menos 3 caracteres.';       
+    static readonly INVALID_NAME_LENGTH = 'O nome deve ter pelo menos 3 caracteres.';
+    static readonly FIRST_NAME_REQUIRED = 'O primeiro nome é obrigatório.';
+    static readonly FIRST_NAME_TOO_SHORT = 'O primeiro nome deve ter pelo menos 2 caracteres.';
+    static readonly LAST_NAME_REQUIRED = 'O sobrenome é obrigatório.';
+    static readonly LAST_NAME_TOO_SHORT = 'O sobrenome deve ter pelo menos 2 caracteres.';
 }

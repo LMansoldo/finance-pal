@@ -17,6 +17,9 @@ export const Register: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-secondary-900">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 className="text-2xl font-bold text-secondary-800 mb-6 text-center">
+          Cadastro de Usuário
+        </h1>
         
         {generalError && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -28,12 +31,24 @@ export const Register: React.FC = () => {
           <div className="mb-4">
             <TextField
               type="text"
-              id="name"
-              value={formData.name}
+              id="firstName"
+              value={formData.firstName}
               onChange={handleChange}
-              placeholder="Seu nome completo"
+              placeholder="Seu primeiro nome"
               label="Nome"
-              error={errors.name}
+              error={errors.firstName}
+            />
+          </div>
+          
+          <div className="mb-4">
+            <TextField
+              type="text"
+              id="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              placeholder="Seu sobrenome"
+              label="Sobrenome"
+              error={errors.lastName}
             />
           </div>
           

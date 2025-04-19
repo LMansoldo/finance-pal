@@ -6,7 +6,8 @@ import { validateRegisterForm, RegisterFormData } from '@modules/auth/config/reg
 
 export const useRegisterForm = () => {
   const [formData, setFormData] = useState<RegisterFormData>({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -59,9 +60,13 @@ export const useRegisterForm = () => {
         return;
       }
       
+      const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+      
       const success = register({ 
         id: Date.now().toString(), 
-        name: formData.name, 
+        name: fullName,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
         email: formData.email, 
         password: formData.password 
       });
@@ -78,8 +83,9 @@ export const useRegisterForm = () => {
       setIsSubmitting(false);
     }
   };
+  
   const resetForm = () => {
-    setFormData({ name: '', email: '', password: '', confirmPassword: '' });
+    setFormData({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' });
     setErrors({});
     setGeneralError('');
   };

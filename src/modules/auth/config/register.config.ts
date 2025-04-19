@@ -2,10 +2,14 @@ import { z } from 'zod';
 import { Messages } from '@shared/constants/messages';
 
 export const registerSchema = z.object({
-  name: z
+  firstName: z
     .string()
-    .min(1, { message: Messages.NAME_REQUIRED })
-    .min(3, { message: Messages.NAME_TOO_SHORT }),
+    .min(1, { message: Messages.FIRST_NAME_REQUIRED })
+    .min(2, { message: Messages.FIRST_NAME_TOO_SHORT }),
+  lastName: z
+    .string()
+    .min(1, { message: Messages.LAST_NAME_REQUIRED })
+    .min(2, { message: Messages.LAST_NAME_TOO_SHORT }),
   email: z
     .string()
     .min(1, { message: Messages.EMAIL_REQUIRED })
