@@ -44,7 +44,7 @@ export const authRepository = {
   refreshSession(): void {
     const session = JSON.parse(localStorage.getItem('session') || 'null');
     if (session) {
-      session.expiresAt = Date.now() + 3600000;
+      session.expiresAt = Date.now() + 3600000; 
       localStorage.setItem('session', JSON.stringify(session));
     }
   },

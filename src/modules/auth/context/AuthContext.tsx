@@ -1,34 +1,34 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { authRepository } from '@modules/auth/repositories/authRepository';
-import { User } from '@modules/auth/types/User.type';
-
-interface AuthContextData {
-  user: User | null;
-  isAuthenticated: boolean;
-  login: (email: string, password: string) => boolean;
-  register: (user: User) => boolean;
-  logout: () => void;
-}
+import { AuthContextData, User } from '@modules/auth/types/User.type';
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const checkAndUpdateAuthStatus = () => {
+    const isAuth = authRepository.isAuthenticated();
+    
+    if (!isAuth) {
+      setUser(null);
+      setIsAuthenticated(false);
+    } else {
+      const currentUser = authRepository.getCurrentUser();
+      setUser(currentUser);
+      setIsAuthenticated(true);
+      authRepository.refreshSession();
+    }
+  };
 
   useEffect(() => {
-    if (authRepository.isAuthenticated()) {
-      setUser(authRepository.getCurrentUser());
-      setIsAuthenticated(true);
-    }
+    checkAndUpdateAuthStatus();
+    setLoading(false);
     
     const interval = setInterval(() => {
-      if (!authRepository.isAuthenticated()) {
-        setUser(null);
-        setIsAuthenticated(false);
-      } else {
-        authRepository.refreshSession();
-      }
+      checkAndUpdateAuthStatus();
     }, 60000);
     
     return () => clearInterval(interval);
@@ -61,7 +61,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, login, register, logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, loading, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );
