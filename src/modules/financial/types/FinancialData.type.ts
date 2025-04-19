@@ -6,6 +6,8 @@ export interface BaseFinancialItem {
 export interface CurrencyItem extends BaseFinancialItem {
   buy: number;
   sell: number;
+  source?: string;
+  format?: string[];
 }
 
 export interface AssetItem extends BaseFinancialItem {
@@ -21,6 +23,7 @@ export interface FinancialData {
   sell?: number;
   points?: number;
   variation: number;
+  source?: string;
   location?: string;
   timestamp?: number;
 }
@@ -37,8 +40,8 @@ export interface FinancialResponse {
     stocks: {
       [key: string]: AssetItem;
     };
-    bitcoins: {
-      [key: string]: AssetItem;
+    bitcoin: {
+      [key: string]: CurrencyItem;
     }
   };
 }

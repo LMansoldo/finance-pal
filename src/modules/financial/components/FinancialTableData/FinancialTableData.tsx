@@ -32,7 +32,8 @@ export const FinancialTableData: React.FC<FinancialTableDataProps> = ({ quotatio
             <ValueCell 
               type={quotation.type} 
               buy={quotation.buy} 
-              points={quotation.points} 
+              points={quotation.points}
+              source={quotation.source}
             />
             <VariationCell variation={quotation.variation} />
             <ActionCell id={quotation.id} />

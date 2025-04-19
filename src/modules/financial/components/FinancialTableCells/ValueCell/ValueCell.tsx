@@ -1,19 +1,23 @@
 import React from 'react';
 import { Table } from '@shared/components/Table/Table';
 import { TRANSACTION_TYPE } from '@modules/financial/constants/table.constants';
+import { formatCurrency } from '@modules/financial/helpers/currency.helper';
+import { formatStockPrice } from '@modules/financial/helpers/stock.helper';
 
 interface ValueCellProps {
   type: string;
   buy?: number;
   points?: number;
+  source?: string;
 }
 
-export const ValueCell: React.FC<ValueCellProps> = ({ type, buy, points }) => {
+export const ValueCell: React.FC<ValueCellProps> = ({ type, source, buy, points }) => {
+  console.log('ValueCell - type:', source);
   return (
     <Table.Cell>
       {type !== TRANSACTION_TYPE.STOCK
-        ? `R$ ${buy?.toFixed(2) || '-'}`
-        : points?.toFixed(2) || '-'}
+        ? `${formatCurrency(source, buy) || '-'}`
+        : formatStockPrice(points) || '-'}
     </Table.Cell>
   );
 };
