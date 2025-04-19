@@ -15,6 +15,12 @@ export interface AssetItem extends BaseFinancialItem {
   points: number;
 }
 
+export interface FinancialViewProps {
+  loading: boolean;
+  quotations: FinancialData[];
+  error: Error | null;
+}
+
 export interface FinancialData {
   id: string;
   name: string;

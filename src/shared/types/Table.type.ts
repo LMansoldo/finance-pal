@@ -36,4 +36,5 @@ export interface CellProps {
     children: ReactNode;
     className?: string;
     align?: 'left' | 'center' | 'right';
+    colSpan?: number;
 }
