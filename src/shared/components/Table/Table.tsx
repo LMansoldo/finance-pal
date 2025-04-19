@@ -87,7 +87,8 @@ const HeaderCell = ({
 const Cell = ({ 
   children, 
   className = 'text-secondary-100', 
-  align = 'left' 
+  align = 'left',
+  colSpan
 }: CellProps) => {
   const alignClass = {
     left: 'text-left',
@@ -98,6 +99,7 @@ const Cell = ({
   return (
     <td 
       className={`whitespace-nowrap px-6 py-4 text-sm ${alignClass[align]} ${className}`}
+      colSpan={colSpan}
     >
       {children}
     </td>
