@@ -10,7 +10,7 @@ export const withFinancialCard = <P extends object>(
 ) => {
   return (props: P & WithFinancialCardProps) => {
     return (
-      <div className="bg-gray-900 rounded-lg shadow-md p-4 flex flex-col h-full border border-gray-700 hover:border-gray-500 transition-colors">
+      <div className="bg-secondary-800 rounded-lg shadow-md p-4 flex flex-col h-full border border-secondary-600 hover:border-secondary-500 transition-colors">
         <Component {...props} />
       </div>
     );

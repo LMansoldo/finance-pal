@@ -133,7 +133,7 @@ export const formatStockPrice = (price: number = 0, locale: string = 'en-US'): s
   export const getChangeColor = (change: number): string => {
     if (change > 0) return 'text-green-500';
     if (change < 0) return 'text-red-500';
-    return 'text-gray-500';
+    return 'text-secondary-500';
   };
   
   /**

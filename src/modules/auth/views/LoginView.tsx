@@ -15,7 +15,7 @@ export const Login: React.FC = () => {
   } = useLoginForm();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-secondary-900">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         
         {generalError && (
@@ -61,7 +61,7 @@ export const Login: React.FC = () => {
           </div>
           
           <div className="text-center mt-4">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-secondary-600">
               Não tem uma conta?{' '}
               <Link to="/register" className="text-blue-500 hover:text-blue-700">
                 Cadastre-se

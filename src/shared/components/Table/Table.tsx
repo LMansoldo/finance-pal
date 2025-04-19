@@ -14,8 +14,8 @@ const Table = ({
 }: TableProps) => {
   return (
     <TableContext.Provider value={{ striped, hoverable }}>
-      <div className={`overflow-hidden shadow ring-1 ring-gray-700 ring-opacity-5 sm:rounded-lg ${className}`}>
-        <table className="min-w-full divide-y divide-gray-700">
+      <div className={`overflow-hidden shadow ring-1 ring-secondary-700 ring-opacity-5 sm:rounded-lg ${className}`}>
+        <table className="min-w-full divide-y divide-secondary-700">
           {children}
         </table>
       </div>
@@ -25,7 +25,7 @@ const Table = ({
 
 const Head = ({ children, className = '' }: HeadProps) => {
   return (
-    <thead className={`bg-gray-800 ${className}`}>
+    <thead className={`bg-secondary-800 ${className}`}>
       {children}
     </thead>
   );
@@ -35,7 +35,7 @@ const Body = ({ children, className = '' }: BodyProps) => {
   const { striped } = useContext(TableContext);
   
   return (
-    <tbody className={`divide-y divide-gray-700 bg-gray-900 ${className}`}>
+    <tbody className={`divide-y divide-secondary-800 bg-secondary-800 ${className}`}>
       {React.Children.map(children, (child, index) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child, {
@@ -54,8 +54,8 @@ const Row = ({ children, className = '', isEven = false }: RowProps) => {
   
   return (
     <tr className={`
-      ${isEven ? 'bg-gray-800' : ''}
-      ${hoverable ? 'hover:bg-gray-700 transition-colors' : ''}
+      ${isEven ? 'bg-secondary-700' : ''}
+      ${hoverable ? 'hover:bg-secondary-600 transition-colors' : ''}
       ${className}
     `}>
       {children}
@@ -77,7 +77,7 @@ const HeaderCell = ({
   return (
     <th 
       scope="col" 
-      className={`px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-300 ${alignClass[align]} ${className}`}
+      className={`px-6 py-3 text-xs font-medium uppercase tracking-wider text-secondary-100 ${alignClass[align]} ${className}`}
     >
       {children}
     </th>
@@ -86,7 +86,7 @@ const HeaderCell = ({
 
 const Cell = ({ 
   children, 
-  className = 'text-gray-300', 
+  className = 'text-secondary-100', 
   align = 'left' 
 }: CellProps) => {
   const alignClass = {

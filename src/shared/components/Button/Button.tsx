@@ -15,11 +15,11 @@ export const Button: React.FC<ButtonProps> = ({
   const baseClasses = 'font-bold rounded focus:outline-none focus:shadow-outline';
   
   const variantClasses: Record<ButtonVariant, string> = {
-    [ButtonVariant.PRIMARY]: 'bg-blue-500 hover:bg-blue-700 text-white',
-    [ButtonVariant.SECONDARY]: 'bg-gray-500 hover:bg-gray-700 text-white',
-    [ButtonVariant.DANGER]: 'bg-red-500 hover:bg-red-700 text-white',
-    [ButtonVariant.SUCCESS]: 'bg-green-500 hover:bg-green-700 text-white',
-    [ButtonVariant.WARNING]: 'bg-yellow-500 hover:bg-yellow-700 text-white',
+    [ButtonVariant.PRIMARY]: 'bg-primary-500 hover:bg-primary-700 text-white',
+    [ButtonVariant.SECONDARY]: 'bg-secondary-500 hover:bg-secondary-700 text-white',
+    [ButtonVariant.DANGER]: 'bg-danger-500 hover:bg-danger-700 text-white',
+    [ButtonVariant.SUCCESS]: 'bg-success-500 hover:bg-success-700 text-white',
+    [ButtonVariant.WARNING]: 'bg-info-500 hover:bg-info-700 text-white',
   };
   
   const sizeClasses: Record<ButtonSize, string> = {

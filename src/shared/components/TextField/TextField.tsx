@@ -15,7 +15,7 @@ export const TextField: React.FC<TextFieldProps> = ({
 }) => {
   return (
     <div className="mb-4">
-      <label htmlFor={id} className="block text-gray-700 text-sm font-bold mb-2">
+      <label htmlFor={id} className="block text-secondary-700 text-sm font-bold mb-2">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <input
@@ -23,7 +23,7 @@ export const TextField: React.FC<TextFieldProps> = ({
         id={id}
         className={`shadow appearance-none border ${
           error ? 'border-red-500' : ''
-        } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${className}`}
+        } rounded w-full py-2 px-3 text-secondary-700 leading-tight focus:outline-none focus:shadow-outline ${className}`}
         value={value}
         onChange={onChange}
         placeholder={placeholder}

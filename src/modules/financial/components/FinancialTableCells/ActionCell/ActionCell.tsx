@@ -11,7 +11,7 @@ export const ActionCell: React.FC<ActionCellProps> = ({ id }) => {
     <Table.Cell>
        <Link 
           to={`/detail/${id}`}
-          className="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center"
+          className="text-primary-400 hover:text-primary-300 text-sm font-medium flex items-center"
         >
           Ver detalhes
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">

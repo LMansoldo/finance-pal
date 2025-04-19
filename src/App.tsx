@@ -8,8 +8,8 @@ const RegisterPage = lazy(() => import('./pages/register/RegisterPage'));
 const HomePage = lazy(() => import('./pages/home/HomePage'));
 
 const LoadingFallback = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gray-100">
-    <div className="text-xl text-gray-600">Carregando...</div>
+  <div className="min-h-screen flex items-center justify-center bg-secondary-900">
+    <div className="text-xl text-secondary-600">Carregando...</div>
   </div>
 );
 
