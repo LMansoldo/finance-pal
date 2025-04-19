@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './modules/auth/context/AuthContext';
 import { PrivateRoute } from './shared/components/PrivateRoute';
+import { LoadingSpinner } from './shared/components/LoadingSpinner/LoadingSpinner';
 
 const LoginPage = lazy(() => import('./pages/login/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/register/RegisterPage'));
@@ -9,7 +10,7 @@ const HomePage = lazy(() => import('./pages/home/HomePage'));
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center bg-secondary-900">
-    <div className="text-xl text-secondary-600">Carregando...</div>
+    <div className="text-xl text-secondary-600"><LoadingSpinner /></div>
   </div>
 );
 

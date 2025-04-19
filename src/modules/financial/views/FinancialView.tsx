@@ -3,6 +3,7 @@ import { financialRepository } from '@modules/financial/repositories/financialRe
 import { FinancialData } from '@modules/financial/types/FinancialData.type';
 import { FinancialTableData } from '@modules/financial/components/FinancialTableData/FinancialTableData';
 import { FinancialCard } from '@modules/financial/components/FinancialCardComponent/FinancialCard';
+import { LoadingSpinner } from '@shared/components/LoadingSpinner/LoadingSpinner';
 
 const MobileView = React.memo(({ quotations }: { quotations: FinancialData[] }) => (
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -72,7 +73,7 @@ export const FinancialView: React.FC = () => {
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         {loading ? (
           <div className="flex justify-center my-12">
-            <div className="loader">Carregando...</div>
+            <div className="loader"><LoadingSpinner /></div>
           </div>
         ) : (
           <>
