@@ -5,7 +5,7 @@ import { useFinancialQuotations } from '@modules/financial/hooks/useFinancialQuo
 import { FinancialViewProps } from '@modules/financial/types/FinancialData.type';
 
 const MobileView = React.memo(({ loading, quotations, error }: FinancialViewProps) => (
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <div className="grid grid-cols-1 gap-4">
       <FinancialCardList
         quotations={quotations}
         loading={loading}

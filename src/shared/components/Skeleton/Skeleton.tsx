@@ -3,7 +3,7 @@ import { SkeletonProps } from '@shared/types/Skeleton.type';
 
 export const Skeleton: React.FC<SkeletonProps> = ({
   width = '100%',
-  height = '1rem',
+  height = '1.25rem',
   borderRadius = '0.25rem',
   className = '',
 }) => {
