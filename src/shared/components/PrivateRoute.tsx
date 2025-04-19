@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '@modules/auth/context/AuthContext';
+import { Header } from '@shared/components/Header/Header';
 
 interface PrivateRouteProps {
   children: React.ReactNode;
@@ -17,5 +18,8 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
     return <Navigate to="/login" replace />;
   }
 
-  return <>{children}</>;
+  return <>
+    <Header title="Finance Pal" />
+    {children}
+  </>;
 };

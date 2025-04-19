@@ -12,7 +12,6 @@ interface ValueCellProps {
 }
 
 export const ValueCell: React.FC<ValueCellProps> = ({ type, source, buy, points }) => {
-  console.log('ValueCell - type:', source);
   return (
     <Table.Cell>
       {type !== QUOTATION_TYPE.STOCK

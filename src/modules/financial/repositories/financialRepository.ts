@@ -25,7 +25,6 @@ export const financialRepository = {
       
       const expiredCache = cacheService.getExpired<FinancialData[]>(cacheKey);
       if (expiredCache) {
-        console.log('Usando dados em cache expirados devido a erro na API');
         return expiredCache;
       }
       

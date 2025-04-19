@@ -1,11 +1,11 @@
-export const TRANSACTION_TYPE = {
+export const QUOTATION_TYPE = {
     CURRENCY: 'currency',
     STOCK: 'stock',
     BITCOIN: 'bitcoin',
 } as const;
 
-export const TRANSACTION_TYPE_LABEL = {
-    [TRANSACTION_TYPE.CURRENCY]: 'Moeda',
-    [TRANSACTION_TYPE.STOCK]: 'Ação',
-    [TRANSACTION_TYPE.BITCOIN]: 'Cripto'
+export const QUOTATION_TYPE_LABEL = {
+    [QUOTATION_TYPE.CURRENCY]: 'Moeda',
+    [QUOTATION_TYPE.STOCK]: 'Ação',
+    [QUOTATION_TYPE.BITCOIN]: 'Cripto'
 } as const;
