@@ -7,6 +7,7 @@ import { LoadingSpinner } from './shared/components/LoadingSpinner/LoadingSpinne
 const LoginPage = lazy(() => import('./pages/login/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/register/RegisterPage'));
 const HomePage = lazy(() => import('./pages/home/HomePage'));
+const DetailPage = lazy(() => import('./pages/detail/DetailPage'));
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center bg-secondary-900">
@@ -34,7 +35,7 @@ const App: React.FC = () => {
               path="/detail/:id" 
               element={
                 <PrivateRoute>
-                  <></>
+                  <DetailPage />
                 </PrivateRoute>
               } 
             />

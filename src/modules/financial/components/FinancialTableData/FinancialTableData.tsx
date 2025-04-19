@@ -24,9 +24,9 @@ export const FinancialTableData: React.FC<FinancialViewProps> = ({ quotations, l
       <Table.Body>
         {loading && (
           <>
-            {[...Array(10)].map((_) => (
-              <Table.Row>
-                <Table.Cell key={_} colSpan={5}>
+            {[...Array(10)].map((_, index) => (
+              <Table.Row key={`${_}-${index}`}>
+                <Table.Cell colSpan={5}>
                   <Skeleton />
                 </Table.Cell>
               </Table.Row>
