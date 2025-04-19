@@ -7,8 +7,8 @@ interface VariationCellProps {
 
 export const VariationCell: React.FC<VariationCellProps> = ({ variation }) => {
   const getVariationColorClass = (value: number): string => {
-    if (value > 0) return 'text-green-600';
-    if (value < 0) return 'text-red-600';
+    if (value > 0) return 'text-green-500';
+    if (value < 0) return 'text-red-500';
     return 'text-gray-300';
   };
 

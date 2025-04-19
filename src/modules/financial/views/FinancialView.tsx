@@ -1,13 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect, useMemo } from 'react';
 import { financialRepository } from '@modules/financial/repositories/financialRepository';
 import { FinancialData } from '@modules/financial/types/FinancialData.type';
 import { useAuth } from '@modules/auth/context/AuthContext';
-import { FinancialTableData } from '@modules/financial/components/financialTableData/financialTableData';
+import { FinancialTableData } from '@modules/financial/components/FinancialTableData/FinancialTableData';
+import { FinancialCard } from '@modules/financial/components/FinancialCardComponent/FinancialCard';
 
 export const FinancialView: React.FC = () => {
   const [quotations, setQuotations] = useState<FinancialData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const { user, logout } = useAuth();
+
+  useLayoutEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIsMobile();
+
+    let timeoutId: number;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(checkIsMobile, 100);
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +55,20 @@ export const FinancialView: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const mobileView = useMemo(() => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {quotations.map((quotation) => (
+        <FinancialCard key={quotation.id} quotation={quotation} />
+      ))}
+    </div>
+  ), [quotations]);
+
+  const desktopView = useMemo(() => (
+    <div className="bg-white shadow overflow-hidden sm:rounded-lg mb-6">
+      <FinancialTableData quotations={quotations} /> 
+    </div>
+  ), [quotations]);
+
   return (
     <div className="min-h-screen bg-gray-100">
       <header className="bg-white shadow">
@@ -55,7 +92,9 @@ export const FinancialView: React.FC = () => {
             <div className="loader">Carregando...</div>
           </div>
         ) : (
-          <FinancialTableData quotations={quotations} />
+          <>
+            {isMobile ? mobileView : desktopView}
+          </>
         )}
       </main>
     </div>

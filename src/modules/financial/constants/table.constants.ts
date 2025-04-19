@@ -7,5 +7,5 @@ export const TRANSACTION_TYPE = {
 export const TRANSACTION_TYPE_LABEL = {
     [TRANSACTION_TYPE.CURRENCY]: 'Moeda',
     [TRANSACTION_TYPE.STOCK]: 'Ação',
-    [TRANSACTION_TYPE.BITCOIN]: 'Bitcoin'
+    [TRANSACTION_TYPE.BITCOIN]: 'Cripto'
 } as const;
