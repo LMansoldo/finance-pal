@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from '@shared/components/Table/Table';
-import { TRANSACTION_TYPE } from '@modules/financial/constants/table.constants';
+import { QUOTATION_TYPE } from '@modules/financial/constants/table.constants';
 import { formatCurrency } from '@modules/financial/helpers/currency.helper';
 import { formatStockPrice } from '@modules/financial/helpers/stock.helper';
 
@@ -15,7 +15,7 @@ export const ValueCell: React.FC<ValueCellProps> = ({ type, source, buy, points 
   console.log('ValueCell - type:', source);
   return (
     <Table.Cell>
-      {type !== TRANSACTION_TYPE.STOCK
+      {type !== QUOTATION_TYPE.STOCK
         ? `${formatCurrency(source, buy) || '-'}`
         : formatStockPrice(points) || '-'}
     </Table.Cell>

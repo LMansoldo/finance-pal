@@ -14,7 +14,7 @@ const MobileView = React.memo(({ quotations }: { quotations: FinancialData[] }) 
 ));
 
 const DesktopView = React.memo(({ quotations }: { quotations: FinancialData[] }) => (
-  <div className="bg-white shadow overflow-hidden sm:rounded-lg mb-6">
+  <div className="bg-white shadow overflow-x sm:rounded-lg mb-6">
     <FinancialTableData quotations={quotations} /> 
   </div>
 ));
