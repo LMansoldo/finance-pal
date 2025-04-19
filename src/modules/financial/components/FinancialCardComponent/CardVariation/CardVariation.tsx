@@ -7,7 +7,7 @@ interface CardVariationProps {
 
 export const CardVariation: React.FC<CardVariationProps> = ({ variation }) => {
   const getVariationColorClass = (variation: number | undefined): string => {
-    if (!variation) return 'text-secondary-600';
+    if (!variation) return 'text-secondary-100';
     return variation > 0 ? 'text-green-600' : variation < 0 ? 'text-red-600' : 'text-secondary-600';
   };
 
