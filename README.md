@@ -1,3 +1,7 @@
+# Finance Pal
+
+Deploy do app [Aqui](https://lmansoldo.github.io/finance-pal):
+
 # Instruções para Configuração e Execução do Projeto
 
 ## 1. Clonar o repositório
@@ -28,7 +32,7 @@ npm run build
 npm run preview
 ```
 
-Após o comando de preview, acesse a aplicação pelo endereço exibido no terminal, geralmente `http://localhost:5173`.
+Após o comando de preview, acesse a aplicação pelo endereço exibido no terminal, geralmente `http://localhost:4173/finance-pal`.
 
 ---
 
@@ -38,15 +42,18 @@ Certifique-se de que todas as variáveis de ambiente necessárias estejam corret
 
 **Facilidades e Desafios**
 
-Com a adotação da arquitetura DDD a aplicação se tornou mais organizada e escalável. A separação de responsabilidades entre os módulos e as camadas facilitou a manutenção e a evolução do projeto. Como facilidades, destaco:
-    - **Elaboração dos componentes compartilhados:** Não havia componentes complexos a serem compartilhados entre os módulos.
+Com a adoção da arquitetura DDD a aplicação se tornou mais organizada e escalável. A separação de responsabilidades entre os módulos e as camadas facilitou a manutenção e a evolução do projeto. Como facilidades, destaco:
 
-    - **Elaboração dos componentes de tabela:** Adotei o compound pattern para a criação de componentes de tabela e pure components para os específicos do módulo financeiro.
+- **Elaboração dos componentes compartilhados:** Não havia componentes complexos a serem compartilhados entre os módulos.
 
-    - **Elaboração dos componentes de layout:** Adotei cores primária e secundária para o projeto, isso facilitou a estilização e consistência visual.
-    
-    - **Estruturação do projeto:** Implementar a arquitetura por módulos facilitou a manutenção e a evolução do projeto, como haviam apenas dois módulos, a separação foi mais simples.
+ - **Elaboração dos componentes de tabela:** Adotei o compound pattern para a criação de componentes de tabela e pure components para os específicos do módulo financeiro.
+
+- **Elaboração dos componentes de layout:** Adotei cores primária e secundária para o projeto, isso facilitou a estilização e consistência visual.
+
+- **Estruturação do projeto:** Implementar a arquitetura por módulos facilitou a manutenção e a evolução do projeto, como haviam apenas dois módulos, a separação foi mais simples.
 
 Como desafios, destaco:
-    - **Elaboração dos componentes de gráficos:** Implementar Charts.js sem uma endpoint de retorno de mais dados sobre Moedas, Ações e Criptomoedas foi um desafio, precisei criar uma estrutura de persistencia para armazenar os dados de histórico financeiro.
-    - **Persistencia dos dados de histórico financeiro:** Como não havia uma API externa para obter os dados de histórico financeiro foi necessário persistir os dados em localStorage e criar um histórico.
+
+- **Elaboração dos componentes de gráficos:** Implementar Charts.js sem uma endpoint de retorno de mais dados sobre Moedas, Ações e Criptomoedas foi um desafio, precisei criar uma estrutura de persistencia para armazenar os dados de histórico financeiro.
+
+- **Persistencia dos dados de histórico financeiro:** Como não havia uma API externa para obter os dados de histórico financeiro foi necessário persistir os dados em localStorage e criar um histórico.
