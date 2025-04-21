@@ -11,6 +11,7 @@
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
+		"analyze": "source-map-explorer dist/assets/*.js",
 		"preview": "vite preview"
 	},
 	"dependencies": {
@@ -47,12 +48,14 @@
 		"react-chartjs-2": "^5.3.0",
 		"react-icons": "^5.4.0",
 		"react-router-dom": "^7.5.0",
+		"source-map-explorer": "^2.5.3",
 		"tailwindcss": "^3.4.17",
 		"ts-jest": "^29.2.6",
 		"ts-node": "^10.9.2",
 		"typescript": "~5.6.2",
 		"typescript-eslint": "^8.18.2",
 		"vite": "^6.0.5",
+		"vite-bundle-analyzer": "^0.19.0",
 		"zod": "^3.24.3"
 	}
 }

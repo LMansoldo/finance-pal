@@ -5,12 +5,12 @@ import path from 'path'
 export default defineConfig({
 	base: '/finance-pal/',
 	plugins: [react()],
-	css: {
-		preprocessorOptions: {
-			less: {
-				javascriptEnabled: true,
-				modifyVars: {
-					'@primary-color': '#1DA57A',
+	build: {
+		sourcemap: true,
+		rollupOptions: {
+			output: {
+				manualChunks: {
+					vendor: ['react', 'react-dom', 'react-router-dom', 'axios', 'chart.js', 'zod'],
 				},
 			},
 		},
