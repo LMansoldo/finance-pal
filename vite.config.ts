@@ -6,8 +6,7 @@ export default defineConfig({
 	base: '/',
 	plugins: [react()],
 	build: {
-		sourcemap: process.env.NODE_ENV !== 'production', 
-		minify: 'terser',
+		sourcemap: process.env.NODE_ENV !== 'production',
 		rollupOptions: {
 			output: {
 				manualChunks: {
