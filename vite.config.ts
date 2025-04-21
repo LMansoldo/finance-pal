@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 export default defineConfig({
-	base: '/',
+	base: '/finance-pal/',
 	plugins: [react()],
 	build: {
 		sourcemap: process.env.NODE_ENV !== 'production',
