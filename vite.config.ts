@@ -3,10 +3,11 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 export default defineConfig({
-	base: '/finance-pal/',
+	base: '/',
 	plugins: [react()],
 	build: {
-		sourcemap: true,
+		sourcemap: process.env.NODE_ENV !== 'production', 
+		minify: 'terser',
 		rollupOptions: {
 			output: {
 				manualChunks: {
