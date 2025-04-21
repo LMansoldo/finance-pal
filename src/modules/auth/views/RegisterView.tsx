@@ -16,9 +16,9 @@ export const Register: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-secondary-900">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">        
+      <div className="bg-secondary-200 p-8 rounded-lg shadow-md w-full max-w-md mx-4">        
         {generalError && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+          <div className="bg-danger-100 border border-danger-400 text-danger-700 px-4 py-3 rounded mb-4">
             {generalError}
           </div>
         )}

@@ -23,7 +23,7 @@ export class FinancialDataMapper {
         sell: value.sell,
         variation: value.variation,
         type: 'currency' as const
-      })).slice(0, 3);
+      })).slice(0, 5);
   }
   
   private mapStocks(stocks: Record<string, AssetItem>): FinancialData[] {
@@ -35,7 +35,7 @@ export class FinancialDataMapper {
         points: value.points,
         variation: value.variation,
         type: 'stock' as const
-      })).slice(0, 3);
+      })).slice(0, 5);
   }
   
   private mapBitcoin(bitcoin: Record<string, CurrencyItem>, source: string): FinancialData[] {
@@ -48,7 +48,7 @@ export class FinancialDataMapper {
         sell: value.sell,
         variation: value.variation,
         type: 'bitcoin' as const
-      })).slice(0, 4);
+      })).slice(0, 5);
   }
 }
 
