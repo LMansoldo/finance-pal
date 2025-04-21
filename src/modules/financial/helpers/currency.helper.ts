@@ -1,3 +1,5 @@
+import { Messages } from "@shared/constants/messages";
+
 /**
  * Formata um valor em centavos para uma moeda específica
  * @param source Código da moeda (USD, BRL, EUR, etc)
@@ -30,7 +32,7 @@ export const formatCurrency = (source: string = 'USD', cents: number = 0): strin
         maximumFractionDigits: 2,
       }).format(value);
     } catch (error) {
-        console.error(`Erro ao formatar valor para a moeda ${source}: ${error}`);
+        console.error(`${Messages.FORMAT_CURRENCY_ERROR} ${source}: ${error}`);
         const symbol = config.symbol || source;
         return `${symbol} ${value.toFixed(2)}`;
     }
@@ -66,7 +68,7 @@ export const formatCurrency = (source: string = 'USD', cents: number = 0): strin
         maximumFractionDigits: 2,
       }).format(value);
     } catch (error) {
-        console.error(`Erro ao formatar valor para a moeda ${source}: ${error}`);
+        console.error(`${Messages.FORMAT_CURRENCY_ERROR} ${source}: ${error}`);
         return value.toFixed(2).replace('.', config.decimalSeparator);
     }
   };

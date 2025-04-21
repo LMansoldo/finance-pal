@@ -27,4 +27,11 @@ export class Messages {
     static readonly FIRST_NAME_TOO_SHORT = 'O primeiro nome deve ter pelo menos 2 caracteres.';
     static readonly LAST_NAME_REQUIRED = 'O sobrenome é obrigatório.';
     static readonly LAST_NAME_TOO_SHORT = 'O sobrenome deve ter pelo menos 2 caracteres.';
+    static readonly REGISTER_ERROR_MESSAGE = 'Erro ao registrar usuário. Tente novamente.';
+    static readonly FORMAT_CURRENCY_ERROR = 'Erro ao formatar valor para a moeda';
+    static readonly FINANCIAL_DATA_ERROR = 'Erro ao buscar dados financeiros';
+    static readonly FINANCIAL_DATA_NOT_FOUND = 'Não foi possível carregar os dados financeiros. Tente novamente mais tarde.';
+    static readonly QUOTATION_ERROR = 'Erro ao buscar cotações';
+    static readonly DATA_NOT_FOUND = 'Dados não encontrados';
+    static readonly ERROR_LOADING_DATA = 'Erro ao carregar dados.';
 }

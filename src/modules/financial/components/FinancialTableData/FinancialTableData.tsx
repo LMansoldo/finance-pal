@@ -8,6 +8,7 @@ import { ActionCell } from '@modules/financial/components/FinancialTableCells/Ac
 import { FINANCIAL_TABLE_HEADERS } from '@modules/financial/constants/tableHeaders.constants';
 import { FinancialViewProps } from '@modules/financial/types/FinancialData.type';
 import { Skeleton } from '@shared/components/Skeleton/Skeleton';
+import { Messages } from '@shared/constants/messages';
 
 export const FinancialTableData: React.FC<FinancialViewProps> = ({ quotations, loading, error }) => {
   return (
@@ -36,13 +37,13 @@ export const FinancialTableData: React.FC<FinancialViewProps> = ({ quotations, l
 
         {error && (
           <Table.Row>
-            <Table.Cell colSpan={5}>Erro ao carregar dados.</Table.Cell>
+            <Table.Cell colSpan={5}>{Messages.ERROR_LOADING_DATA}</Table.Cell>
           </Table.Row>
         )}
 
         {quotations.length === 0 && !error && !loading && (
           <Table.Row>
-            <Table.Cell colSpan={5}>Nenhum dado encontrado.</Table.Cell>
+            <Table.Cell colSpan={5}>{Messages.DATA_NOT_FOUND}</Table.Cell>
           </Table.Row>
         )}
 

@@ -78,7 +78,7 @@ export const useRegisterForm = () => {
       }
     } catch (error) {
       setGeneralError(Messages.GENERAL_ERROR);
-      console.error('Register error:', error);
+      console.error(Messages.REGISTER_ERROR, error);
     } finally {
       setIsSubmitting(false);
     }

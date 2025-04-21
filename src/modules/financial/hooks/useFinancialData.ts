@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { financialRepository } from '@modules/financial/repositories/financialRepository';
 import { FinancialData } from '@modules/financial/types/FinancialData.type';
+import { Messages } from '@shared/constants/messages';
 
 export const useFinancialData = (quotationId?: string) => {
   const [data, setData] = useState<FinancialData[]>([]);
@@ -33,8 +34,8 @@ export const useFinancialData = (quotationId?: string) => {
           }
         }
       } catch (err) {
-        console.error("Erro ao buscar dados financeiros:", err);
-        setError("Não foi possível carregar os dados financeiros. Tente novamente mais tarde.");
+        console.error(`${Messages.FINANCIAL_DATA_ERROR}`, err);
+        setError(`${Messages.FINANCIAL_DATA_NOT_FOUND}`);
       } finally {
         setLoading(false);
       }

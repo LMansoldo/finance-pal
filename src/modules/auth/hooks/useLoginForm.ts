@@ -56,7 +56,7 @@ export const useLoginForm = () => {
       }
     } catch (error) {
       setGeneralError(Messages.LOGIN_ERROR);
-      console.error('Login error:', error);
+      console.error(Messages.LOGIN_ERROR, error);
     } finally {
       setIsSubmitting(false);
     }

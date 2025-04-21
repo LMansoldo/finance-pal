@@ -22,7 +22,6 @@ const createAxiosInstance = (baseURL: string) => {
 
 const appendApiKey = (url: string, apiKey: string): string => {
   if (!apiKey) {
-    console.warn('API key is not set. Requests might fail.');
     return url;
   }
   
@@ -30,7 +29,7 @@ const appendApiKey = (url: string, apiKey: string): string => {
 };
 
 const handleError = (error: AxiosError): never => {
-  console.error('API Error:', error.response?.data || error.message);
+  console.error(error.response?.data || error.message);
   throw error;
 };
 

@@ -3,6 +3,7 @@ import { cacheService } from './cache';
 import { financialApiService } from './api';
 import { historyService } from './history';
 import { financialDataMapper } from './mappers';
+import { Messages } from '@shared/constants/messages';
 
 export const financialRepository = {
   async getQuotations(): Promise<FinancialData[]> {
@@ -21,7 +22,7 @@ export const financialRepository = {
       
       return processedData;
     } catch (error) {
-      console.error('Erro ao buscar cotações:', error);
+      console.error(`${Messages.QUOTATION_ERROR}`, error);
       
       const expiredCache = cacheService.getExpired<FinancialData[]>(cacheKey);
       if (expiredCache) {

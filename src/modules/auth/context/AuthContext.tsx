@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { authRepository } from '@modules/auth/repositories/authRepository';
 import { AuthContextData, User } from '@modules/auth/types/User.type';
+import { Messages } from '@shared/constants/messages';
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
@@ -49,7 +50,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       authRepository.register(newUser);
       return true;
     } catch (error) {
-      console.error('Erro ao registrar usuário:', error);
+      console.error(Messages.REGISTER_ERROR_MESSAGE, error);
       return false;
     }
   };

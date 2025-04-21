@@ -2,6 +2,7 @@ import React from 'react';
 import { FinancialCard } from '@modules/financial/components/FinancialCardComponent/FinancialCard';
 import { FinancialViewProps } from '@modules/financial/types/FinancialData.type';
 import { Skeleton } from '@shared/components/Skeleton/Skeleton';
+import { Messages } from '@shared/constants/messages';
 
 export const FinancialCardList: React.FC<FinancialViewProps> = ({ quotations, loading, error }) => {
   if (loading) {
@@ -20,7 +21,7 @@ export const FinancialCardList: React.FC<FinancialViewProps> = ({ quotations, lo
   }
 
   if (error) {
-    return <div className="text-center mt-4">Nenhum dado encontrado.</div>;
+    return <div className="text-center mt-4">{Messages.DATA_NOT_FOUND}</div>;
   }
 
   return (
