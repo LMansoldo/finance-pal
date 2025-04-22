@@ -39,6 +39,22 @@ Após o comando de preview, acesse a aplicação pelo endereço exibido no termi
 **Observação:**  
 Certifique-se de que todas as variáveis de ambiente necessárias estejam corretamente configuradas no arquivo `.env`.
 
+**Sobre o projeto**
+
+O projeto Finance Pal é uma SPA de auxílio financeiro desenvolvida com React e Typescript. O Intuito dela é mostrar aos usuários dados sobre cambio, acoes e criptomoedas, e também permitir que eles recebam essas informações via Whatsapp de acordo com sua escolha, assim como links dos serviços mais benéficos para realizar compra e venda. Claro, esta feature virá em uma versão futura como uma espécie de Agente financeiro personalizado.
+
+**Arquitetura**
+
+A aplicação foi desenvolvida seguindo a arquitetura DDD (Domain-Driven Design) e a arquitetura de camadas. O intuito dessa organização é separar as responsabilidades de cada componente da aplicação, bem como facilitar a manutenção e evolução do projeto ao adicionarmos novas funcionalidades, endpoints e componentes visuais. 
+
+Na construção dos componentes, utilizei o conceito de pure components e compound components visando a reutilização de acordo com o contexto sem causar rerenderizamento desnecessário.
+
+Para a estilização adotei TailwindCSS, que é uma biblioteca de estilos que permite a criação de estilos personalizados de forma rápida e eficiente. Adotei-o para ganhar tração no projeto e também para facilitar a estilização dos componentes sem precisar me preocupar com quebra de estilos. 
+
+Sobre a autenticação, os dados persistem no localStorage do navegador, mas cabe a refatoração para um auth guard real em uma versão futura, com uma API de autenticação.
+
+E sobre API Services, adotei uma forma de cache de dados durante a navegação para que os dados não sejam atualizados constantemente, e também para evitar chamadas desnecessárias à API. Há outras formas de implementar esse cache, porém como não tenho controle sobre a API, optei por essa solução.
+
 
 **Facilidades e Desafios**
 
@@ -56,4 +72,5 @@ Como desafios, destaco:
 
 - **Elaboração dos componentes de gráficos:** Implementar Charts.js sem uma endpoint de retorno de mais dados sobre Moedas, Ações e Criptomoedas foi um desafio, precisei criar uma estrutura de persistencia para armazenar os dados de histórico financeiro.
 
-- **Persistencia dos dados de histórico financeiro:** Como não havia uma API externa para obter os dados de histórico financeiro foi necessário persistir os dados em localStorage e criar um histórico.
+- **Persistencia dos dados de histórico financeiro:** Como não havia uma endpoint externa para obter os dados de histórico financeiro foi necessário persistir os dados em localStorage e criar um histórico.
+
