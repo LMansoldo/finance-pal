@@ -1,3 +1,4 @@
+import { FinancialType } from "../enums/financialType.enum";
 export interface BaseFinancialItem {
   name: string;
   variation: number;
@@ -24,7 +25,7 @@ export interface FinancialViewProps {
 export interface FinancialData {
   id: string;
   name: string;
-  type: 'currency' | 'stock' | 'bitcoin';
+  type: FinancialType;
   buy?: number;
   sell?: number;
   points?: number;
@@ -50,4 +51,9 @@ export interface FinancialResponse {
       [key: string]: CurrencyItem;
     }
   };
+}
+
+export interface FinancialQuotationChartProps {
+  history: FinancialData[];
+  type: FinancialType;
 }

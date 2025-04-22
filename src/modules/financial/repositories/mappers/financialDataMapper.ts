@@ -1,3 +1,4 @@
+import { FinancialType } from '@modules/financial/enums/financialType.enum';
 import { AssetItem, CurrencyItem, FinancialData, FinancialResponse } from '@modules/financial/types/FinancialData.type';
 
 export class FinancialDataMapper {
@@ -22,8 +23,8 @@ export class FinancialDataMapper {
         buy: value.buy,
         sell: value.sell,
         variation: value.variation,
-        type: 'currency' as const
-      })).slice(0, 5);
+        type: FinancialType.CURRENCY,
+      })).slice(0, 3);
   }
   
   private mapStocks(stocks: Record<string, AssetItem>): FinancialData[] {
@@ -34,8 +35,8 @@ export class FinancialDataMapper {
         location: value.location,
         points: value.points,
         variation: value.variation,
-        type: 'stock' as const
-      })).slice(0, 5);
+        type: FinancialType.STOCK,
+      })).slice(0, 3);
   }
   
   private mapBitcoin(bitcoin: Record<string, CurrencyItem>, source: string): FinancialData[] {
@@ -47,8 +48,8 @@ export class FinancialDataMapper {
         buy: value.buy,
         sell: value.sell,
         variation: value.variation,
-        type: 'bitcoin' as const
-      })).slice(0, 5);
+        type: FinancialType.BITCOIN,
+      })).slice(0, 4);
   }
 }
 

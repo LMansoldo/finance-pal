@@ -34,4 +34,5 @@ export class Messages {
     static readonly QUOTATION_ERROR = 'Erro ao buscar cotações';
     static readonly DATA_NOT_FOUND = 'Dados não encontrados';
     static readonly ERROR_LOADING_DATA = 'Erro ao carregar dados.';
+    static readonly INSUFICIENT_CHART_DATA = 'Não há dados suficientes para exibir o gráfico.';
 }
