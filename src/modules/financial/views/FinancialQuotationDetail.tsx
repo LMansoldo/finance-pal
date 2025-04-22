@@ -1,12 +1,13 @@
 import React from 'react';
 import { Table } from '@shared/components/Table/Table';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useFinancialData } from '@modules/financial/hooks/useFinancialData';
 import { FinancialQuotationChart } from '@modules/financial/components/FinancialQuotationChart/FinancialQuotationChart';
 import { TypeCell } from '../components/FinancialTableCells/TypeCell/TypeCell';
 import { ValueCell } from '../components/FinancialTableCells/ValueCell/ValueCell';
 import { VariationCell } from '../components/FinancialTableCells/VariationCell/VariationCell';
 import { LoadingSpinner } from '@shared/components/LoadingSpinner/LoadingSpinner';
+import { BsArrowLeft } from "react-icons/bs";
 
 export const FinancialQuotationDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -37,8 +38,13 @@ export const FinancialQuotationDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-
       <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <div className="">
+        <Link to="/" className="flex items-center mb-4 gap-2 text-secondary-200 hover:text-secondary-100">
+          <BsArrowLeft />
+          Voltar
+        </Link>
+      </div>
         <div className="shadow overflow-hidden sm:rounded-lg mb-6">
           <div className="border-t border-secondary-700">
             <Table striped hoverable>
